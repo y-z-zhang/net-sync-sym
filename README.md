@@ -13,7 +13,7 @@ It includes:
   
 3. lbmap.m
 
-  Colormap file used for the plots in examples.m. Blue corresponds positive values and red to negative values.
+  Colormap file used for the plots in examples.m. Blue corresponds to positive values and red to negative values.
   
 4. random_net.txt
 
