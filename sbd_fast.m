@@ -7,7 +7,7 @@
 %% This code finds a finest simultaneous block diagonalization (SBD) of a set of
 %% symmetric or hermitian matrices A within the field \mathbb{R} or \mathbb{C}.
 %% It also works for generic matrices (not necessarily symmetric or hermitian),
-%% the SBD will then be finest in the sense of matrix *-algebra.
+%% in such cases the SBD is the finest in the sense of matrix *-algebras.
 
 %%%%%%%
 %USEAGE 
@@ -15,13 +15,13 @@
 %% P = sbd(A,field)
 %% A --- the cell array containing the set of matrices to be simultaneously block diagonalized
 %% field --- 'real' or 'complex'
-%% threshold --- error tolerance for linear indepedence test (suitable choice makes the algorithm robust against error in matrix data)
+%% threshold --- error tolerance for linear indepedence test (suitable choice makes the algorithm robust against noises in matrix data)
 %% P --- the orthogonal/unitary transformation matrix that performs SBD on A
 
 %%%%%%%%%%
 %REFERENCE 
 %%%%%%%%%%
-%% Y.Zhang and A.E.Motter, "FAST, UNIFIED, AND DIRECT APPROACH TO NETWORK SYNCHRONIZATION"
+%% Y.Zhang and A.E.Motter, "Fast and symmetry-independent stability analysis of cluster synchronization patterns"
 
 function P = sbd(A,field,threshold) 
 
