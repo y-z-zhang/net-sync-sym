@@ -1,6 +1,6 @@
 # net-sync-sym
 This is the Matlab code accompanying the paper
-**Y.Zhang and A.E.Motter, _Fast and symmetry-independent stability analysis of cluster synchronization patterns_**
+**_Fast and symmetry-independent stability analysis of cluster synchronization patterns_, Y.Zhang and A.E.Motter.**
 
 It includes:
 1. sbd_fast.m
