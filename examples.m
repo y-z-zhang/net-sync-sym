@@ -376,7 +376,7 @@ for ii = 1:4
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig6b_Zhang.pdf')
+saveas(gcf,'Fig4b_Zhang.pdf')
 
 %% We now study the 7-cluster pattern in the same multilayer network
 D{1} = laplacian1 + 1e-5*rand(2*n);
@@ -427,4 +427,4 @@ for ii = 1:9
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig6c_Zhang.pdf')
+saveas(gcf,'Fig4c_Zhang.pdf')
