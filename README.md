@@ -1,6 +1,5 @@
-# net-sync-sym
-This is the Matlab code accompanying the paper
-**_Symmetry-independent stability analysis of synchronization patterns_, Y.Zhang and A.E.Motter.**
+# Finest simultaneous block diagonalization of multiple matrices
+This is the Matlab code accompanying the paper: Y. Zhang and A. E. Motter, _Symmetry-independent stability analysis of synchronization patterns_, SIAM Review (in press).
 
 It includes:
 1. sbd_fast.m
@@ -9,7 +8,7 @@ It includes:
 
 2. examples.m
 
-  Examples showing applications of the SBD algorithm in analyzing network synchronization patterns. (Including patterns arising from symmetry clusters, Laplacian clusters, equitable clusters, as well as chimera states in multilayer networks.)
+  Examples showing applications of the SBD algorithm in analyzing network synchronization patterns, including patterns arising from symmetry clusters, Laplacian clusters, input clusters, and chimera states in multilayer networks.
 
 3. lbmap.m
 
@@ -17,4 +16,4 @@ It includes:
 
 4. random_net.txt
 
-  The adjacency matrix of a 30-node random network used in examples.m.
+  The adjacency matrix of the 30-node random network used in examples.m.
