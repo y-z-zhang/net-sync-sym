@@ -2,7 +2,7 @@
 %%                      by Yuanzhao Zhang (yuanzhao@u.northwestern.edu)
 
 %%%%%%%%
-%PURPOSE 
+%PURPOSE
 %%%%%%%%
 %% This code finds a finest simultaneous block diagonalization (SBD) of a set of
 %% symmetric or hermitian matrices A within the field \mathbb{R} or \mathbb{C}.
@@ -10,7 +10,7 @@
 %% in such cases the SBD is the finest in the sense of matrix *-algebras.
 
 %%%%%%%
-%USEAGE 
+%USEAGE
 %%%%%%%
 %% P = sbd(A,field)
 %% A --- the cell array containing the set of matrices to be simultaneously block diagonalized
@@ -19,11 +19,11 @@
 %% P --- the orthogonal/unitary transformation matrix that performs SBD on A
 
 %%%%%%%%%%
-%REFERENCE 
+%REFERENCE
 %%%%%%%%%%
-%% Y.Zhang and A.E.Motter, "Fast and symmetry-independent stability analysis of cluster synchronization patterns"
+%% Y. Zhang and A. E. Motter, "Symmetry-independent stability analysis of synchronization patterns", SIAM Review (in press)
 
-function P = sbd(A,field,threshold) 
+function P = sbd(A,field,threshold)
 
   n = size(A{1}, 2);  %% size of the matrices to be simultaneously block diagonalized
   P = [];             %% initialize the transformation matrix
@@ -37,15 +37,15 @@ function P = sbd(A,field,threshold)
         B = B + randn*(A{p}+(A{p})');
       case 'complex'
         B = B + randn*(A{p}+(A{p})') + i*randn*(A{p}-(A{p})');
-    end 
+    end
   end
 
   [V,D] = eig(B);      %% find the eigenvalues and eigenvectors of B
 
-  %% loop until the transformation matrix is n-by-n, each loop finds a new invariant subspace (thus also common block) of matrices in A
-  while size(P,2) < n       
+  %% loop until the transformation matrix is n-by-n, each loop finds a new invariant subspace (thus also a common block) of matrices in A
+  while size(P,2) < n
     if idx == 1:n           %% if this is the first loop
-      v(:,1) = V(:,1);      %% pick one of the eigenvectors of B 
+      v(:,1) = V(:,1);      %% pick one of the eigenvectors of B
       idx(1) = 0;
     else
       %% find one eigenvector of B that is not in the span of P's column vectors
@@ -65,13 +65,13 @@ function P = sbd(A,field,threshold)
         end
       end
     end
-  
+
     %% generate new vectors by applying matrices in A and their conjugate transposes to v_test
     for p = 1:size(A,2)
       v(:,2*p) = A{p}*v(:,1);
       v(:,2*p+1) = (A{p})'*v(:,1);
     end
-  
+
     %% find linearly indepedent vectors among v_test and its images under A as well as A', make them orthonormal
     for ii = 1:2*size(A,2)+1
       if norm(v(:,ii)) > threshold
@@ -83,14 +83,14 @@ function P = sbd(A,field,threshold)
         v(:,ii) = zeros(n,1);
       end
     end
-  
+
     %% get rid of the redundant vectors
     for ii = 2*size(A,2)+1:-1:1
       if v(:,ii) == zeros(n,1)
         v(:,ii) = [];
       end
     end
-  
+
     %% attemp to expand v to form an invariant subspace under matrices in A
     flag = 1;
     while flag == 1
@@ -102,7 +102,7 @@ function P = sbd(A,field,threshold)
             v1 = v1 + randn * v(:,ii);
           case 'complex'
             v1 = v1 + (randn + randn*i) * v(:,ii);
-        end 
+        end
       end
       for p = 1:size(A,2)       %% see if applying A and A' to it will produce any new vector that is linearly independent from v
         v2 = A{p}*v1;
@@ -125,7 +125,7 @@ function P = sbd(A,field,threshold)
         end
       end
     end
-  
+
     P = [P,v];                  %% v is a basis for the invariant subspace corresponding to the common block found in this iteration, add v to the transformation matrix
   end
 end

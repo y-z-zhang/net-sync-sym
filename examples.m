@@ -1,13 +1,13 @@
 %% Examples accompying the simultaneous block diagonalization code sbd_fast.m
 %% Including applications to synchronization patterns arising from symmetry clusters,
-%% Laplacian clusters, equitable clusters, as well as chimera states in multilayer networks
+%% Laplacian clusters, input clusters, and chimera states in multilayer networks
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
-% Network with 5 symmetry clusters (two intertwined) from 
+% Network with 5 symmetry clusters (two intertwined) from
 % L. M. Pecora, F. Sorrentino, A. M. Hagerstrom, T. E. Murphy, and R. Roy,
-% Cluster synchronization and isolated desynchronization in complex networks with symmetries, 
+% Cluster synchronization and isolated desynchronization in complex networks with symmetries,
 % Nat. Commun., 5 (2014), 4079.
 %%%%%%%%%%%%%%%%%%
 
@@ -67,15 +67,15 @@ for ii = 1:6
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'pecora14.pdf')
+saveas(gcf,'symmetry_cluster.pdf')
 
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
 % Network with 2 Laplacian clusters from
-% F. Sorrentino, L. M. Pecora, A. M. Hagerstrom, T. E. Murphy, and R. Roy, 
-% Complete characterization of the stability of cluster synchronization in complex dynamical networks, 
+% F. Sorrentino, L. M. Pecora, A. M. Hagerstrom, T. E. Murphy, and R. Roy,
+% Complete characterization of the stability of cluster synchronization in complex dynamical networks,
 % Sci. Adv., 2 (2016), e1501737
 %%%%%%%%%%%%%%%%%%
 
@@ -121,28 +121,28 @@ for ii = 1:3
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'sorrentino16.pdf')
+saveas(gcf,'Laplacian_cluster.pdf')
 
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
-% Network with 2 equitable clusters from
-% M. T. Schaub, N. O’Clery, Y. N. Billeh, J.-C. Delvenne, R. Lambiotte, and M. Barahona, 
-% Graph partitions and cluster synchronization in networks of oscillators, 
+% Network with 2 input clusters from
+% M. T. Schaub, N. O’Clery, Y. N. Billeh, J.-C. Delvenne, R. Lambiotte, and M. Barahona,
+% Graph partitions and cluster synchronization in networks of oscillators,
 % Chaos, 26 (2016), 094821.
 %%%%%%%%%%%%%%%%%%
 
 n = 8; %% size of the matrices
 %% define adjacency matrix
 adj = [0,1,1,0,0,0,0,0;...
- 	   1,0,1,0,0,0,0,0;...
- 	   1,1,0,1,0,0,0,0;...
- 	   0,0,1,0,1,0,0,0;...
- 	   0,0,0,1,0,1,0,0;...
- 	   0,0,0,0,1,0,1,1;...
- 	   0,0,0,0,0,1,0,0;...
- 	   0,0,0,0,0,1,0,0];
+ 	   	 1,0,1,0,0,0,0,0;...
+ 	     1,1,0,1,0,0,0,0;...
+ 	     0,0,1,0,1,0,0,0;...
+ 	     0,0,0,1,0,1,0,0;...
+ 	     0,0,0,0,1,0,1,1;...
+ 	     0,0,0,0,0,1,0,0;...
+ 	     0,0,0,0,0,1,0,0];
 %% define Laplacian matrix
 rowsum = sum(adj,2);
 laplacian = diag(rowsum) - adj;
@@ -177,35 +177,35 @@ for ii = 1:3
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'schaub16.pdf')
+saveas(gcf,'input_cluster.pdf')
 
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
-% Network with 2 equitable clusters from Fig.1 of
-% Y. Zhang and A. E. Motter, 
-% Fast and symmetry-independent stability analysis
-% of cluster synchronization patterns
+% Network with 2 input clusters from Fig.1 of
+% Y. Zhang and A. E. Motter,
+% Symmetry-independent stability analysis of synchronization patterns,
+% SIAM Review (in press)
 %%%%%%%%%%%%%%%%%%
 
 n = 15; %% size of the matrices
 %% define adjacency matrix
 adj = [0,1,1,0,0,0,0,0,0,0,0,1,0,0,0;...
-		1,0,1,0,0,0,0,1,0,0,0,0,0,0,0;...
-		1,1,0,1,0,0,0,0,0,0,0,0,0,0,0;...
-		0,0,1,0,1,1,1,0,0,0,0,0,0,0,0;...
-		0,0,0,1,0,0,1,0,0,0,0,0,0,0,0;...
-		0,0,0,1,0,0,1,0,0,0,0,0,0,0,0;...
-		0,0,0,1,1,1,0,0,0,0,0,0,0,0,0;...
-		0,1,0,0,0,0,0,0,1,1,1,0,0,0,0;...
-		0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
-		0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
-		0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
-		1,0,0,0,0,0,0,0,0,0,0,0,1,1,1;...
-		0,0,0,0,0,0,0,0,0,0,0,1,0,1,1;...
-		0,0,0,0,0,0,0,0,0,0,0,1,1,0,1;...
-		0,0,0,0,0,0,0,0,0,0,0,1,1,1,0];
+			 1,0,1,0,0,0,0,1,0,0,0,0,0,0,0;...
+		   1,1,0,1,0,0,0,0,0,0,0,0,0,0,0;...
+		   0,0,1,0,1,1,1,0,0,0,0,0,0,0,0;...
+		   0,0,0,1,0,0,1,0,0,0,0,0,0,0,0;...
+		   0,0,0,1,0,0,1,0,0,0,0,0,0,0,0;...
+		   0,0,0,1,1,1,0,0,0,0,0,0,0,0,0;...
+		   0,1,0,0,0,0,0,0,1,1,1,0,0,0,0;...
+		   0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
+		   0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
+		   0,0,0,0,0,0,0,1,0,0,0,0,0,0,0;...
+		   1,0,0,0,0,0,0,0,0,0,0,0,1,1,1;...
+		   0,0,0,0,0,0,0,0,0,0,0,1,0,1,1;...
+		   0,0,0,0,0,0,0,0,0,0,0,1,1,0,1;...
+		   0,0,0,0,0,0,0,0,0,0,0,1,1,1,0];
 
 %% define Laplacian matrix
 rowsum = sum(adj,2);
@@ -243,16 +243,16 @@ for ii = 1:3
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig1_Zhang.pdf')
+saveas(gcf,'Sirev_fig1.pdf')
 
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
 % Random network with 4 symmetry clusters from Fig.3 of
-% Y. Zhang and A. E. Motter, 
-% Fast and symmetry-independent stability analysis
-% of cluster synchronization patterns
+% Y. Zhang and A. E. Motter,
+% Symmetry-independent stability analysis of synchronization patterns,
+% SIAM Review (in press)
 %%%%%%%%%%%%%%%%%%
 
 n = 30; %% size of the matrices
@@ -301,16 +301,16 @@ for ii = 1:5
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig3_Zhang.pdf')
+saveas(gcf,'Sirev_fig3.pdf')
 
 
 clc;clear;
 
 %%%%%%%%%%%%%%%%%%
 % Chimera states in a multilayer network from Fig.4 of
-% Y. Zhang and A. E. Motter, 
-% Fast and symmetry-independent stability analysis
-% of cluster synchronization patterns
+% Y. Zhang and A. E. Motter,
+% Symmetry-independent stability analysis of synchronization patterns,
+% SIAM Review (in press)
 %%%%%%%%%%%%%%%%%%
 
 n = 6; %% size of the matrices representing each layer
@@ -376,7 +376,7 @@ for ii = 1:4
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig4b_Zhang.pdf')
+saveas(gcf,'Sirev_fig4b.pdf')
 
 %% We now study the 7-cluster pattern in the same multilayer network
 D{1} = laplacian1 + 1e-5*rand(2*n);
@@ -427,4 +427,4 @@ for ii = 1:9
 	set(gca,'YTick',[])
 end
 %set(gca,'Visible','off');
-saveas(gcf,'Fig4c_Zhang.pdf')
+saveas(gcf,'Sirev_fig4c.pdf')
