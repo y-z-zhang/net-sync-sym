@@ -1,13 +1,13 @@
-%% Fast Simultaneous Block Diagonalization
+%% Finest Simultaneous Block Diagonalization
 %%                      by Yuanzhao Zhang (yuanzhao@u.northwestern.edu)
 
 %%%%%%%%
 %PURPOSE
 %%%%%%%%
-%% This code finds a finest simultaneous block diagonalization (SBD) of a set of
+%% This code finds the finest simultaneous block diagonalization (SBD) of a set of
 %% symmetric or hermitian matrices A within the field \mathbb{R} or \mathbb{C}.
 %% It also works for generic matrices (not necessarily symmetric or hermitian),
-%% in such cases the SBD is the finest in the sense of matrix *-algebras.
+%% in such cases the SBD is the finest in the sense of matrix *-algebra.
 
 %%%%%%%
 %USEAGE
@@ -21,7 +21,7 @@
 %%%%%%%%%%
 %REFERENCE
 %%%%%%%%%%
-%% Y. Zhang and A. E. Motter, "Symmetry-independent stability analysis of synchronization patterns", SIAM Review (in press)
+%% Y. Zhang and A. E. Motter, "Symmetry-independent stability analysis of synchronization patterns", SIAM Rev., 62, 817–836 (2020)
 
 function P = sbd(A,field,threshold)
 
@@ -40,27 +40,26 @@ function P = sbd(A,field,threshold)
     end
   end
 
-  [V,D] = eig(B);      %% find the eigenvalues and eigenvectors of B
+  [V,D] = eig(B);  %% find the eigenvalues and eigenvectors of B
 
-  %% loop until the transformation matrix is n-by-n, each loop finds a new invariant subspace (thus also a common block) of matrices in A
+  %% loop until the transformation matrix is n-by-n, each loop finds a new minimal invariant subspace (i.e., a common block) of matrices in A
   while size(P,2) < n
-    if idx == 1:n           %% if this is the first loop
-      v(:,1) = V(:,1);      %% pick one of the eigenvectors of B
+    if idx == 1:n  %% if this is the first loop, simply pick one of the eigenvectors of B
+      v(:,1) = V(:,1);
       idx(1) = 0;
-    else
-      %% find one eigenvector of B that is not in the span of P's column vectors
+    else  %% otherwise, find one eigenvector of B that is not in the span of P's column vectors
       while true
         ind = find(idx > 0);
         v_test = V(:,ind(1));   %% pick one of the remaining eigenvectors of B
         for ii = 1:size(P,2)    %% test whether v_test is in the span of P's column vectors using Gram–Schmidt
           v_test = v_test - proj(P(:,ii),v_test);
         end
-        if norm(v_test) > threshold   %% if not, use v_test to find new invariant subspaces under matrices in A
+        if norm(v_test) > threshold %% if v_test is not in the span of P's column vectors, exit the loop (we will use v_test to find a new invariant subspace under matrices in A)
           v = [];
           v(:,1) = v_test;
           idx(ind(1)) = 0;
           break
-        else                    %% otherwise, mark v_test as already in the span of P's column vectors and repeat
+        else  %% otherwise, mark v_test as already in the span of P's column vectors and repeat
           idx(ind(1)) = 0;
         end
       end
@@ -94,9 +93,9 @@ function P = sbd(A,field,threshold)
     %% attemp to expand v to form an invariant subspace under matrices in A
     flag = 1;
     while flag == 1
-      flag = 0;
+      flag = 0; %% exit loop if the orthonormal basis v can no longer be expanded
       v1 = zeros(n,1);
-      for ii = 1:size(v,2)      %% generate a random linear combination of the orthonormal vectors
+      for ii = 1:size(v,2)  %% generate a random linear combination of the orthonormal vectors
         switch field
           case 'real'
             v1 = v1 + randn * v(:,ii);
@@ -104,13 +103,13 @@ function P = sbd(A,field,threshold)
             v1 = v1 + (randn + randn*i) * v(:,ii);
         end
       end
-      for p = 1:size(A,2)       %% see if applying A and A' to it will produce any new vector that is linearly independent from v
+      for p = 1:size(A,2)  %% see if applying A and A' to it will produce any new vector that is linearly independent from v
         v2 = A{p}*v1;
         v3 = (A{p})'*v1;
         for ii = 1:size(v,2)
           v2 = v2 - proj(v(:,ii),v2);
         end
-        if norm(v2) > threshold       %% if so, expand v to include v2
+        if norm(v2) > threshold  %% if so, expand v to include v2
           v2 = v2 / norm(v2);
           v = [v,v2];
           flag = 1;
@@ -118,7 +117,7 @@ function P = sbd(A,field,threshold)
         for ii = 1:size(v,2)
           v3 = v3 - proj(v(:,ii),v3);
         end
-        if norm(v3) > threshold       %% if so, expand v to include v3
+        if norm(v3) > threshold  %% if so, expand v to include v3
           v3 = v3 / norm(v3);
           v = [v,v3];
           flag = 1;
@@ -126,7 +125,7 @@ function P = sbd(A,field,threshold)
       end
     end
 
-    P = [P,v];                  %% v is a basis for the invariant subspace corresponding to the common block found in this iteration, add v to the transformation matrix
+    P = [P,v]; %% v is a basis for the invariant subspace corresponding to the common block found in this iteration, add v to the transformation matrix
   end
 end
 
