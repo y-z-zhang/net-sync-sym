@@ -1,5 +1,5 @@
 # Finest simultaneous block diagonalization of multiple matrices
-This is the Matlab code accompanying the paper: Y. Zhang and A. E. Motter, _Symmetry-independent stability analysis of synchronization patterns_, SIAM Review (in press).
+This is the Matlab code accompanying the paper: Y. Zhang and A. E. Motter, _Symmetry-independent stability analysis of synchronization patterns_, [SIAM Rev., 62, 817–836 (2020)](https://doi.org/10.1137/19M127358X).
 
 It includes:
 1. sbd_fast.m
