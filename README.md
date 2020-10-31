@@ -1,10 +1,12 @@
 # Finest simultaneous block diagonalization of multiple matrices
+
 This is the Matlab code accompanying the paper: Y. Zhang and A. E. Motter, _Symmetry-independent stability analysis of synchronization patterns_, [SIAM Rev., 62 817–836 (2020)](https://doi.org/10.1137/19M127358X).
+A related algorithm (implemented in Python) can be found [here](https://github.com/y-z-zhang/SBD).
 
 It includes:
 1. sbd_fast.m
 
-  Implementation of the SBD algorithm (Algorithm 1 in the paper), which finds a finest simultaneous block diagonalization of any given set of symmetric matrices.
+  Implementation of the SBD algorithm (Algorithm 1 in the paper), which finds the finest simultaneous block diagonalization of any given set of symmetric matrices. The algorithm works by sequentially exploring invariant subspaces under matrix multiplication.
 
 2. examples.m
 
