@@ -186,7 +186,7 @@ clc;clear;
 % Network with 2 input clusters from Fig.1 of
 % Y. Zhang and A. E. Motter,
 % Symmetry-independent stability analysis of synchronization patterns,
-% SIAM Review (in press)
+% SIAM Rev. 62 817–836 (2020)
 %%%%%%%%%%%%%%%%%%
 
 n = 15; %% size of the matrices
@@ -252,7 +252,7 @@ clc;clear;
 % Random network with 4 symmetry clusters from Fig.3 of
 % Y. Zhang and A. E. Motter,
 % Symmetry-independent stability analysis of synchronization patterns,
-% SIAM Review (in press)
+% SIAM Rev. 62 817–836 (2020)
 %%%%%%%%%%%%%%%%%%
 
 n = 30; %% size of the matrices
@@ -310,7 +310,7 @@ clc;clear;
 % Chimera states in a multilayer network from Fig.4 of
 % Y. Zhang and A. E. Motter,
 % Symmetry-independent stability analysis of synchronization patterns,
-% SIAM Review (in press)
+% SIAM Rev. 62 817–836 (2020)
 %%%%%%%%%%%%%%%%%%
 
 n = 6; %% size of the matrices representing each layer
