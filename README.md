@@ -5,15 +5,15 @@ A related algorithm (implemented in Python) can be found [here](https://github.c
 
 The repository includes:
 
-1. sbd_fast.m
+1. `sbd_fast.m`
 
   Implementation of the SBD algorithm (Algorithm 1 in the paper), which finds the finest simultaneous block diagonalization of any given set of symmetric matrices. The algorithm works by sequentially exploring invariant subspaces under matrix multiplications.
 
-2. examples.m
+2. `examples.m`
 
   Examples showing applications of the SBD algorithm in analyzing network synchronization patterns, including patterns arising from symmetry clusters, Laplacian clusters, input clusters, and chimera states in multilayer networks.
 
-3. lbmap.m
+3. `lbmap.m`
 
   Colormap file used for the plots in examples.m. Blue corresponds to positive values and red to negative values.
 
