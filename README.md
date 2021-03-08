@@ -15,7 +15,7 @@ The repository includes:
 
 3. `lbmap.m`
 
-  Colormap file used for the plots in examples.m. Blue corresponds to positive values and red to negative values. This file is modified from [Light Bartlein Color Maps](https://www.mathworks.com/matlabcentral/fileexchange/17555-light-bartlein-color-maps) by Robert Bemis.
+  Colormap file used for the plots in `examples.m`. Blue corresponds to positive values and red to negative values. This file is modified from [Light Bartlein Color Maps](https://www.mathworks.com/matlabcentral/fileexchange/17555-light-bartlein-color-maps) by Robert Bemis.
 
 4. random_net.txt
 
