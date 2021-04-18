@@ -1,7 +1,7 @@
 # Finest simultaneous block diagonalization of multiple matrices
 
 This is the MATLAB code accompanying the paper: Y. Zhang and A. E. Motter, _Symmetry-independent stability analysis of synchronization patterns_, [SIAM Rev. 62 817–836 (2020)](https://doi.org/10.1137/19M127358X).
-A further improved algorithm (implemented in Python and MATLAB) can be found [here](https://github.com/y-z-zhang/SBD).
+A variant of the algorithm (implemented in Python and MATLAB), which is simpler but not guaranteed to find the finest SBD in edge cases, can be found [here](https://github.com/y-z-zhang/SBD).
 
 The repository includes:
 
