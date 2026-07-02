@@ -7,7 +7,7 @@ The repository includes:
 
 1. `sbd_fast.m`
 
-  Implementation of the SBD algorithm (Algorithm 1 in the paper), which finds the finest simultaneous block diagonalization of any given set of symmetric matrices. The algorithm works by sequentially exploring invariant subspaces under matrix multiplications.
+  Implementation of the SBD algorithm (Algorithm 1 in the paper), which finds the finest simultaneous block diagonalization of any given set of matrices (not necessarily symmetric or hermitian) under an orthogonal/unitary transformation. The algorithm works by sequentially exploring invariant subspaces under matrix multiplications. For non-symmetric/non-hermitian matrices, the matrices and their (conjugate) transposes are block diagonalized simultaneously, and the resulting SBD is the finest in the sense of matrix *-algebra — that is, the finest achievable with an orthogonal/unitary transformation (see Proposition 2.1 and the concluding remarks of the paper for details).
 
 2. `examples.m`
 

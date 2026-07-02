@@ -1,4 +1,4 @@
-%% Examples accompying the simultaneous block diagonalization code sbd_fast.m
+%% Examples accompanying the simultaneous block diagonalization code sbd_fast.m
 %% Including applications to synchronization patterns arising from symmetry clusters,
 %% Laplacian clusters, input clusters, and chimera states in multilayer networks
 
